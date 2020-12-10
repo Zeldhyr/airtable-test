@@ -7,9 +7,9 @@ const airtable = () => {
         { headers: { Authorization: "Bearer " + api_token }}
         )
         .then(response => {
-            display = response.data;
-            document.write(JSON.stringify(display))
-            console.log(`airtable response :`, response.data.records);
+            display = JSON.stringify(response.data.records[0])
+            document.getElementById("display").innerHTML = display
+            console.log(`airtable response :`, response.data);
         })
         .catch(error => console.error(error));
 };
